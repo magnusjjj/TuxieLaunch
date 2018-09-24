@@ -28,40 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnGamemodeCreate = new System.Windows.Forms.Button();
             this.contentMountListBox = new System.Windows.Forms.CheckedListBox();
             this.lblMainSteam = new System.Windows.Forms.Label();
             this.lblSteamDirs = new System.Windows.Forms.Label();
             this.richTextBoxAdditionalSteamDirectory = new System.Windows.Forms.RichTextBox();
+            this.btnStartHammer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // btnGamemodeCreate
             // 
-            this.button1.Location = new System.Drawing.Point(134, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnGamemodeCreate.Location = new System.Drawing.Point(22, 12);
+            this.btnGamemodeCreate.Name = "btnGamemodeCreate";
+            this.btnGamemodeCreate.Size = new System.Drawing.Size(130, 23);
+            this.btnGamemodeCreate.TabIndex = 0;
+            this.btnGamemodeCreate.Text = "Create the gamemode";
+            this.btnGamemodeCreate.UseVisualStyleBackColor = true;
+            this.btnGamemodeCreate.Click += new System.EventHandler(this.button1_Click);
             // 
             // contentMountListBox
             // 
             this.contentMountListBox.FormattingEnabled = true;
-            this.contentMountListBox.Location = new System.Drawing.Point(22, 190);
+            this.contentMountListBox.Location = new System.Drawing.Point(12, 196);
             this.contentMountListBox.Name = "contentMountListBox";
-            this.contentMountListBox.Size = new System.Drawing.Size(120, 94);
+            this.contentMountListBox.Size = new System.Drawing.Size(563, 259);
             this.contentMountListBox.TabIndex = 1;
             // 
             // lblMainSteam
             // 
             this.lblMainSteam.AutoSize = true;
-            this.lblMainSteam.Location = new System.Drawing.Point(131, 47);
+            this.lblMainSteam.Location = new System.Drawing.Point(19, 50);
             this.lblMainSteam.Name = "lblMainSteam";
             this.lblMainSteam.Size = new System.Drawing.Size(70, 13);
             this.lblMainSteam.TabIndex = 2;
             this.lblMainSteam.Text = "lblMainSteam";
-            this.lblMainSteam.Click += new System.EventHandler(this.lblMainSteam_Click);
             // 
             // lblSteamDirs
             // 
@@ -71,7 +71,6 @@
             this.lblSteamDirs.Size = new System.Drawing.Size(65, 13);
             this.lblSteamDirs.TabIndex = 3;
             this.lblSteamDirs.Text = "lblSteamDirs";
-            this.lblSteamDirs.Click += new System.EventHandler(this.label1_Click);
             // 
             // richTextBoxAdditionalSteamDirectory
             // 
@@ -81,16 +80,27 @@
             this.richTextBoxAdditionalSteamDirectory.TabIndex = 4;
             this.richTextBoxAdditionalSteamDirectory.Text = "";
             // 
+            // btnStartHammer
+            // 
+            this.btnStartHammer.Location = new System.Drawing.Point(159, 12);
+            this.btnStartHammer.Name = "btnStartHammer";
+            this.btnStartHammer.Size = new System.Drawing.Size(83, 23);
+            this.btnStartHammer.TabIndex = 5;
+            this.btnStartHammer.Text = "Start Hammer";
+            this.btnStartHammer.UseVisualStyleBackColor = true;
+            this.btnStartHammer.Click += new System.EventHandler(this.btnStartHammer_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(587, 481);
+            this.Controls.Add(this.btnStartHammer);
             this.Controls.Add(this.richTextBoxAdditionalSteamDirectory);
             this.Controls.Add(this.lblSteamDirs);
             this.Controls.Add(this.lblMainSteam);
             this.Controls.Add(this.contentMountListBox);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnGamemodeCreate);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -100,11 +110,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGamemodeCreate;
         private System.Windows.Forms.CheckedListBox contentMountListBox;
         private System.Windows.Forms.Label lblMainSteam;
         private System.Windows.Forms.Label lblSteamDirs;
         private System.Windows.Forms.RichTextBox richTextBoxAdditionalSteamDirectory;
+        private System.Windows.Forms.Button btnStartHammer;
     }
 }
 

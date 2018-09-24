@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HammerHook;
 
 // 1. Populate a 'found steam store locations' list
 // 2. Populate a 'games found' list
@@ -19,6 +20,8 @@ namespace TuxieLaunch
 {
     public partial class Form1 : Form
     {
+        public string targetdirectory = "";
+
         public Form1()
         {
             InitializeComponent();
@@ -28,14 +31,47 @@ namespace TuxieLaunch
             foreach(SourceGame g in SourceGames.games)
             {
                 if (g.Installed) {
-                    contentMountListBox.Items.Add(g.ProperName, CheckState.Checked);
+                    if(g.SteamName == "GarrysMod") {
+                        targetdirectory = g.Directory + "/TuxieLauncher/";
+                    }
+                    contentMountListBox.Items.Add(g.ProperName + " -> " + g.Directory, CheckState.Checked);
                 }
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
+        private void button1_Click(object sender, EventArgs e) {
+            string warningmessage = "";
+            if (!Directory.Exists(targetdirectory))
+            {
+                warningmessage = "Going to create the directory " + targetdirectory + ", that does not exist yet, and place the new gamemode in there. Are you sure?";
+            } else
+            {
+                warningmessage = "Going to put the gamemode in the directory " + targetdirectory +", which already exists. This *should* mean that it's already a TuxieLauncher gamemode directory, and it will be overwritten. Are you sure?";
+            }
+            DialogResult dr = System.Windows.Forms.MessageBox.Show(warningmessage, "Yoloswag", MessageBoxButtons.OKCancel);
+            if (dr == DialogResult.Cancel)
+                return;
 
+            Directory.CreateDirectory(targetdirectory);
+            ValveGameConfig.writeToGameinfo(targetdirectory, contentMountListBox.CheckedItems.Cast<string>());
+            /*using (var fbd = new FolderBrowserDialog())
+            {
+                DialogResult result = fbd.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+                    string[] files = Directory.GetFiles(fbd.SelectedPath);
+                    if (files.Length > 0) {
+                        DialogResult dr = System.Windows.Forms.MessageBox.Show("Directory not empty! Are you sure?", "Yoloswag", MessageBoxButtons.OKCancel);
+                        if(dr == DialogResult.Cancel)
+                            return;
+                        //"Files found: " + files.Length.ToString(), "Message");
+                    }
+
+                    ValveGameConfig.writeToGameinfo(fbd.SelectedPath, contentMountListBox.CheckedItems.Cast<string>());
+
+                }
+            }*/
         }
 
  
@@ -80,77 +116,7 @@ namespace TuxieLaunch
 
 
 
-        private void writeToGameinfo()
-        {
-            List<string> stringList = new List<string>();
-            stringList.Add("\"GameInfo\"");
-            stringList.Add("{");
-            stringList.Add("\t game \t \"customConfig\"");
-            stringList.Add("\t title \t \"HAMMER4LIFE\"");
-            stringList.Add("\t title2 \t \"HammerLegion\"");
-            stringList.Add("\t type \t multiplayer_only");
-            stringList.Add("\t nomodels \t 0");
-            stringList.Add("\t nohimodel \t 1");
-            stringList.Add("\t nocrosshair \t 1");
-            stringList.Add("\t FileSystem");
-            stringList.Add("{");
-            stringList.Add("\t SteamAppId \t 243750");
-            stringList.Add("\t SearchPaths");
-            stringList.Add("{");
-            stringList.Add("\t game+mod \t customConfig/custom/*");
-            stringList.Add("\t gamebin \t |gameinfo_path|bin");
-            stringList.Add("\t game \t \"|all_source_engine_paths|hl2/hl2_english.vpk\"");
-            stringList.Add("\t game \t \"|all_source_engine_paths|hl2/hl2_pak.vpk\"");
-            stringList.Add("\t game \t \"|all_source_engine_paths|hl2/hl2_textures.vpk\"");
-            stringList.Add("\t game \t \"|all_source_engine_paths|hl2/hl2_sound_vo_english.vpk\"");
-            stringList.Add("\t game \t \"|all_source_engine_paths|hl2/hl2_sound_misc.vpk\"");
-            stringList.Add("\t game \t \"|all_source_engine_paths|hl2/hl2_misc.vpk\"");
-            if (this.contentMountListBox.CheckedItems.Contains((object)"Counter-Strike Source"))
-                stringList.Add("\t game \t \"|all_source_engine_paths|../Counter-Strike Source/cstrike/cstrike_pak.vpk\"");
-            if (this.contentMountListBox.CheckedItems.Contains((object)"Day of Defeat Source"))
-                stringList.Add("\t game \t \"|all_source_engine_paths|../Day of Defeat Source/dod/dod_pak.vpk\"");
-            if (this.contentMountListBox.CheckedItems.Contains((object)"GarrysMod"))
-                stringList.Add("\t game \t \"|all_source_engine_paths|../GarrysMod/garrysmod/garrysmod.vpk\"");
-            if (this.contentMountListBox.CheckedItems.Contains((object)"Half-Life 2 Deathmatch"))
-                stringList.Add("\t game \t \"|all_source_engine_paths|../Half-Life 2 Deathmatch/hl2mp/hl2mp_pak.vpk\"");
-            if (this.contentMountListBox.CheckedItems.Contains((object)"Half-Life 2 Episodic"))
-            {
-                stringList.Add("\t game \t \"|all_source_engine_paths|../Half-Life 2/episodic/ep1_pak.vpk\"");
-                stringList.Add("\t game \t \"|all_source_engine_paths|episodic/ep1_english.vpk\"");
-            }
-            if (this.contentMountListBox.CheckedItems.Contains((object)"Half-Life 2 Episode 2"))
-            {
-                stringList.Add("\t game \t \"|all_source_engine_paths|../Half-Life 2/ep2/ep2_pak.vpk\"");
-                stringList.Add("\t game \t \"|all_source_engine_paths|ep2/ep2_english.vpk\"");
-            }
-            if (this.contentMountListBox.CheckedItems.Contains((object)"Half-Life 2 Lost Coast"))
-                stringList.Add("\t game \t \"|all_source_engine_paths|../Half-Life 2/lostcoast/lostcoast_pak.vpk\"");
-            if (this.contentMountListBox.CheckedItems.Contains((object)"No More Room In Hell"))
-                stringList.Add("\t game \t \"|all_source_engine_paths|../nmrih/nmrih\"");
-            if (this.contentMountListBox.CheckedItems.Contains((object)"Portal"))
-                stringList.Add("\t game \t \"|all_source_engine_paths|../Portal/portal/portal_pak.vpk\"");
-            if (this.contentMountListBox.CheckedItems.Contains((object)"Source Mods"))
-                stringList.Add("\t game \t \"|all_source_engine_paths|../../sourcemods/*\"");
-            if (this.contentMountListBox.CheckedItems.Contains((object)"Team Fortress 2"))
-            {
-                stringList.Add("\t game \t \"|all_source_engine_paths|../Team Fortress 2/tf/tf2_misc.vpk\"");
-                stringList.Add("\t game \t \"|all_source_engine_paths|../Team Fortress 2/tf/tf2_sound_misc.vpk\"");
-                stringList.Add("\t game \t \"|all_source_engine_paths|../Team Fortress 2/tf/tf2_sound_vo_english.vpk\"");
-                stringList.Add("\t game \t \"|all_source_engine_paths|../Team Fortress 2/tf/tf2_textures.vpk\"");
-            }
-            if (this.contentMountListBox.CheckedItems.Contains((object)"Zombie Panic Source"))
-                stringList.Add("\t game \t \"|all_source_engine_paths|../Source SDK Base 2007/zps\"");
-            if (this.contentMountListBox.CheckedItems.Contains((object)"EYE"))
-                stringList.Add("\t game \t \"|all_source_engine_paths|../EYE/EYE\"");
-            stringList.Add("\t platform \t |all_source_engine_paths|platform/platform_misc.vpk");
-            stringList.Add("\t mod+mod_write+default_write_path \t \"|gameinfo_path|.\"");
-            stringList.Add("\t game+game_write \t hl2mp");
-            stringList.Add("\t platform \t |all_source_engine_paths|platform");
-            stringList.Add("}");
-            stringList.Add("}");
-            stringList.Add("}");
-            //File.WriteAllLines(this.grabSteamRegistry() + "/steamapps/common/Source SDK Base 2013 Multiplayer/customConfig/gameinfo.txt", (IEnumerable<string>)stringList);
-        }
+   
 
 
         private void writeToGameConfig()
@@ -290,14 +256,12 @@ namespace TuxieLaunch
             }*/
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void btnStartHammer_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void lblMainSteam_Click(object sender, EventArgs e)
-        {
-
+            HammerHook.HammerHooker h = new HammerHooker();
+            string[] args = new string[] {this.targetdirectory + "/../bin/hammer.exe"};
+            h.Main(args);
+            DialogResult dr = System.Windows.Forms.MessageBox.Show("ponies", "Yoloswag", MessageBoxButtons.OKCancel);
         }
     }
 }

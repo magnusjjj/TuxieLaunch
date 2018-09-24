@@ -152,6 +152,7 @@ namespace TuxieLaunch
 
         public static void findSteamDirectories()
         {
+            steamStores.Add(mainSteamDir);
             if (File.Exists(mainSteamDir + "/steamapps/libraryfolders.vdf"))
             {
                 string[] lines = File.ReadAllLines(mainSteamDir + "/steamapps/libraryfolders.vdf");
