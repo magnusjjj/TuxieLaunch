@@ -23,7 +23,7 @@
     <ProjectGuid>{52B472C7-1531-47E5-999D-AD9884E2A00C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>DetourDLL</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -72,18 +72,18 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>C:\Users\Tuxie\Downloads\Detours-master\Detours-master\bin.X86</OutDir>
-    <IncludePath>C:\Users\Tuxie\Downloads\Detours-master\Detours-master\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Tuxie\Downloads\Detours-master\Detours-master\lib.X86;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)\target\</OutDir>
+    <IncludePath>$(SolutionDir)\DetoursLib\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\DetoursLib\lib.X86\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Users\Tuxie\Downloads\Detours-master\Detours-master\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Tuxie\Downloads\Detours-master\Detours-master\lib.X86;$(LibraryPath)</LibraryPath>
-    <OutDir>..\..\..\..\Desktop\detoured</OutDir>
+    <IncludePath>$(SolutionDir)\DetoursLib\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\DetoursLib\lib.X86\;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)\target\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -101,7 +101,9 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ModuleDefinitionFile>Source.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
+      <AdditionalOptions>/export:DetourFinishHelperProcess,@1,NONAME %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -138,7 +140,7 @@
       <AdditionalDependencies>detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>
       </ModuleDefinitionFile>
-      <AdditionalOptions>/export:DetourFinishHelperProcess,@1,NONAME /export:TimedSleepEx %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/export:DetourFinishHelperProcess,@1,NONAME %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

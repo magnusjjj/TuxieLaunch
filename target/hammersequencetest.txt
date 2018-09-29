@@ -1,0 +1,1152 @@
+﻿[
+  {
+    "commands": [
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      }
+    ],
+    "name": "S\u0000e\u0000q\u0000u\u0000e\u0000n\u0000c\u0000e\u0000 \u0000n\u0000u\u0000m\u0000b\u0000e\u0000r\u0000 \u00000"
+  },
+  {
+    "commands": [
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      }
+    ],
+    "name": "S\u0000e\u0000q\u0000u\u0000e\u0000n\u0000c\u0000e\u0000 \u0000n\u0000u\u0000m\u0000b\u0000e\u0000r\u0000 \u00001"
+  },
+  {
+    "commands": [
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      }
+    ],
+    "name": "S\u0000e\u0000q\u0000u\u0000e\u0000n\u0000c\u0000e\u0000 \u0000n\u0000u\u0000m\u0000b\u0000e\u0000r\u0000 \u00002"
+  },
+  {
+    "commands": [
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      }
+    ],
+    "name": "S\u0000e\u0000q\u0000u\u0000e\u0000n\u0000c\u0000e\u0000 \u0000n\u0000u\u0000m\u0000b\u0000e\u0000r\u0000 \u00003"
+  },
+  {
+    "commands": [
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      }
+    ],
+    "name": "S\u0000e\u0000q\u0000u\u0000e\u0000n\u0000c\u0000e\u0000 \u0000n\u0000u\u0000m\u0000b\u0000e\u0000r\u0000 \u00004"
+  },
+  {
+    "commands": [
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      }
+    ],
+    "name": "S\u0000e\u0000q\u0000u\u0000e\u0000n\u0000c\u0000e\u0000 \u0000n\u0000u\u0000m\u0000b\u0000e\u0000r\u0000 \u00005"
+  },
+  {
+    "commands": [
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      }
+    ],
+    "name": "S\u0000e\u0000q\u0000u\u0000e\u0000n\u0000c\u0000e\u0000 \u0000n\u0000u\u0000m\u0000b\u0000e\u0000r\u0000 \u00006"
+  },
+  {
+    "commands": [
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      }
+    ],
+    "name": "S\u0000e\u0000q\u0000u\u0000e\u0000n\u0000c\u0000e\u0000 \u0000n\u0000u\u0000m\u0000b\u0000e\u0000r\u0000 \u00007"
+  },
+  {
+    "commands": [
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      }
+    ],
+    "name": "S\u0000e\u0000q\u0000u\u0000e\u0000n\u0000c\u0000e\u0000 \u0000n\u0000u\u0000m\u0000b\u0000e\u0000r\u0000 \u00008"
+  },
+  {
+    "commands": [
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "e\u0000x\u0000e\u0000c\u0000u\u0000t\u0000a\u0000b\u0000l\u0000e",
+        "args": "A\u0000r\u0000g\u0000s",
+        "ensure_file": "E\u0000n\u0000s\u0000u\u0000r\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e"
+      }
+    ],
+    "name": "S\u0000e\u0000q\u0000u\u0000e\u0000n\u0000c\u0000e\u0000 \u0000n\u0000u\u0000m\u0000b\u0000e\u0000r\u0000 \u00009"
+  }
+]

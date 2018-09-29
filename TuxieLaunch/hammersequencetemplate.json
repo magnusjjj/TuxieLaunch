@@ -1,0 +1,62 @@
+﻿[
+  {
+    "commands": [
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": true,
+        "no_wait": true,
+        "executable": "$bsp_exe",
+        "args": "-low -game $gamedir $path\\$file",
+        "ensure_file": "$path\\$file.bsp"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": false,
+        "use_proc_win": true,
+        "no_wait": true,
+        "executable": "$vis_exe",
+        "args": "-low -game $gamedir $path\\$file",
+        "ensure_file": ""
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": false,
+        "use_proc_win": true,
+        "no_wait": true,
+        "executable": "$light_exe",
+        "args": "-low -game $gamedir $path\\$file",
+        "ensure_file": ""
+      },
+      {
+        "is_enabled": true,
+        "special": 257,
+        "is_long_filename": true,
+        "ensure_check": true,
+        "use_proc_win": true,
+        "no_wait": true,
+        "executable": "Copy File",
+        "args": "$path\\file.bsp $bspdir\\file.bsp",
+        "ensure_file": "$bspdir\\file.bsp"
+      },
+      {
+        "is_enabled": true,
+        "special": 0,
+        "is_long_filename": true,
+        "ensure_check": false,
+        "use_proc_win": false,
+        "no_wait": true,
+        "executable": "$game_exe",
+        "args": "-dev -console -allowdebug -game $gamedir +map $file",
+        "ensure_file": ""
+      }
+    ],
+    "name": "Sequence number 0"
+  }
+]

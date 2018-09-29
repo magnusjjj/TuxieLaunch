@@ -1,0 +1,32 @@
+"Configs"
+{
+	"Games"
+	{
+		"customConfig"
+		{
+			"GameDir"		"TUXIELAUNCHER_GAME_DIR"
+			"Hammer"
+			{
+				TUXIELAUNCHER_GAMEDATA_LIST
+//				"GameData0"		"C:\Users\Tuxie\Downloads\SourceMultiTool_1_02 (1)\SourceMultiTool/fgd\cstrike.fgd"
+//				"GameData1"		"C:\Users\Tuxie\Downloads\SourceMultiTool_1_02 (1)\SourceMultiTool/fgd\garrysmod.fgd"
+//				"GameData2"		"C:\Users\Tuxie\Downloads\SourceMultiTool_1_02 (1)\SourceMultiTool/fgd\halflife2.fgd"
+//				"GameData3"		"C:\Users\Tuxie\Downloads\SourceMultiTool_1_02 (1)\SourceMultiTool/fgd\ttt.fgd"
+				"TextureFormat"		"5"
+				"MapFormat"		"4"
+				"DefaultTextureScale"		"0.250000"
+				"DefaultLightmapScale"		"16"
+				"GameExe"		" "
+				"DefaultSolidEntity"		"func_detail"
+				"DefaultPointEntity"		"info_player_start"
+				"BSP"		"TUXIELAUNCHER_BIN_DIR\vbsp.exe"
+				"Vis"		"TUXIELAUNCHER_BIN_DIR\vvis.exe"
+				"Light"		"TUXIELAUNCHER_BIN_DIR\vrad.exe"
+				"GameExeDir"		" "
+				"CordonTexture"		"BLACK"
+				"MaterialExcludeCount"		"0"
+			}
+		}
+	}
+	"SDKVersion"		"5"
+}

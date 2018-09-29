@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TuxieLaunch
 {
-    class ValveGameConfig
+    class ValveGameInfoTXT
     {
         public static void writeToGameinfo(string path, IEnumerable<string> contentMount)
         {
