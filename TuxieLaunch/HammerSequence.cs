@@ -222,9 +222,23 @@ namespace TuxieLaunch
             writer = new BinaryWriter(stream);
         }
 
-        public void Write(string filename, List<Sequence> seq)
+        public void Write(string filename, List<Sequence> seq, Dictionary<string, string> hammersequencevariables)
         {
             SequenceHeader sh = new SequenceHeader();
+
+            foreach(Sequence s in seq)
+            {
+                foreach(Command c in s.commands)
+                { 
+                    foreach (KeyValuePair<string, string> entry in hammersequencevariables)
+                    {
+                        c.args = c.args.Replace(entry.Key, entry.Value);
+                        c.executable = c.executable.Replace(entry.Key, entry.Value);
+                    }
+                }
+            }
+
+
             sh.sequences = seq;
             sh.Write(writer);
             FileStream f = File.Open(filename, FileMode.Create);

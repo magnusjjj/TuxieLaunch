@@ -14,30 +14,68 @@ using Newtonsoft.Json;
 
 namespace TuxieLaunch
 {
-    public partial class Form1 : Form
+    public partial class TuxieLauncher : Form
     {
         public string targetdirectory = "";
         public string bindir = "";
+        public string configname = "settings.json";
 
-        public Form1()
+        public Settings settings;
+
+        public TuxieLauncher()
         {
             InitializeComponent();
+            // Loads the settings. The config name = the path it will look for the config in.
+            settings = Settings.Load(configname);
+            updateorigdirectory();
+            updatebindir();
+
+            // Find a list of all the games and steam directories
             SourceGames.Init();
+
+            // Put some debug info in some boxes
             lblMainSteam.Text = "Main steam directory: " + SourceGames.mainSteamDir;
             richTextBoxAdditionalSteamDirectory.Lines = SourceGames.steamStores.ToArray();
+            richTextBoxAdditionalSteamDirectory.Height = TextRenderer.MeasureText(richTextBoxAdditionalSteamDirectory.Text, richTextBoxAdditionalSteamDirectory.Font).Height;
+            lblSteamDirs.Text = "Steam stores detected: \n"+string.Join("\n", SourceGames.steamStores);
+
+            // It's time to look through the list of games, to:
+            // - Add them to the list of games you can mount the content off
+            // - Find the correct directory of the tools.
+            // - Find all the possible entity definitions (.fgd's), and stuff them into a list.
+            // TODO: Move the directory portion into a seperate function
+            // TODO: Warn about using gmod tools, and kick up a link to install source sdk
+            // TODO: Refactor away the code for selecting the target directory
             List<string> fgdlist = new List<string>();
+
             foreach(SourceGame g in SourceGames.games)
             {
+                // We only want to add the games that are actually, you know, installed.
                 if (g.Installed) {
-                    if(g.SteamName == "GarrysMod") {
-                        targetdirectory = g.Directory + "\\TuxieLauncher\\";
-                        bindir = g.Directory+"\\bin\\";
+                    // Add the games to the list of games you can mod for, and use tools from
+                    int tempgameid = ddGameToModFor.Items.Add(g.Directory);
+                    int temptoolid = ddTools.Items.Add(g.Directory);
+
+                    // Here, we check if we have already saved what tools/games to use, and if so select them in the drop down boxes
+                    if(g.Directory == settings.gamedir)
+                    {
+                        ddGameToModFor.SelectedIndex = tempgameid;
+                        settings.origgame = g;
                     }
+
+                    if (g.Directory == settings.tooldir)
+                    {
+                        ddTools.SelectedIndex = temptoolid;
+                    }
+
+
+                    // Add the list of content we can mount..
                     contentMountListBox.Items.Add(g.ProperName + " -> " + g.Directory, CheckState.Checked);
-                    fgdlist.AddRange(System.IO.Directory.GetFiles(g.Directory + "\\bin\\", "*.fgd"));
-                    try { 
-                        fgdlist.AddRange(System.IO.Directory.GetFiles(g.Directory + "\\garrysmod\\gamemodes\\", "*.fgd", SearchOption.AllDirectories));
+
+                    // And finally, add all the FGD's (entity definitions) we can find :).
+                    try {
                         fgdlist.AddRange(System.IO.Directory.GetFiles(g.Directory + "\\bin\\", "*.fgd"));
+                        fgdlist.AddRange(System.IO.Directory.GetFiles(g.Directory + "\\garrysmod\\gamemodes\\", "*.fgd", SearchOption.AllDirectories));
                     } catch(Exception e)
                     {
 
@@ -45,10 +83,43 @@ namespace TuxieLaunch
                 }
             }
 
-            foreach(string filename in fgdlist)
+            // Oh, and, this section here deals with checking off those fgd's that are already saved from the last time. Should probably move this.
+
+            string gameconfigcontents = "";
+            try { 
+                 gameconfigcontents = File.ReadAllText(targetdirectory+"\\gameconfig.txt", Encoding.ASCII);
+            } catch(Exception e)
             {
-                chkLbFgd.Items.Add(filename);    
+
             }
+
+            foreach (string filename in fgdlist)
+            {
+                chkLbFgd.Items.Add(filename, gameconfigcontents.Contains(filename));    
+            }
+        }
+
+        private void updateorigdirectory()
+        {
+            foreach (SourceGame g in SourceGames.games)
+            {
+                // We only want to add the games that are actually, you know, installed.
+                if (g.Installed)
+                {
+                    // Here, we check if we have already saved what tools/games to use, and if so select them in the drop down boxes
+                    if (g.Directory == settings.gamedir)
+                    {
+                        settings.origgame = g;
+                    }
+                }
+            }
+            
+        }
+
+        private void updatebindir()
+        {
+            bindir = settings.tooldir + "\\bin\\";
+            targetdirectory = settings.tooldir + "\\TuxieLauncher\\";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -67,86 +138,82 @@ namespace TuxieLaunch
                 return;
 
             Directory.CreateDirectory(targetdirectory);
+            Directory.CreateDirectory(targetdirectory+"\\materials\\");
+
             ValveGameInfoTXT.writeToGameinfo(targetdirectory, contentMountListBox.CheckedItems.Cast<string>());
-            HammerConfigTXT.Write(targetdirectory + "\\GameConfig.txt", targetdirectory + "..\\bin", targetdirectory, chkLbFgd.CheckedItems.Cast<string>());
-
-            /*
-            List<Sequence> seqlist = new List<Sequence>();
-
-            for(int i = 0; i < 10; i++)
-            { 
-                Sequence hs = new Sequence();
-                hs.name = "Sequence number " + i;
-                for(int j = 0; j < 10; j++)
-                {
-                    Command c = new Command();
-                    c.args = "Args";
-                    c.ensure_check = true;
-                    c.ensure_file = "Ensure file";
-                    c.executable = "executable";
-                    c.is_enabled = true;
-                    c.is_long_filename = true;
-                    c.no_wait = true;
-                    c.special = CommandSpecial.None;
-                    c.use_proc_win = false;
-                    hs.commands.Add(c);
-                }
-                seqlist.Add(hs);
-            }*/
-
-
-            //JsonConvert.DefaultSettings.
-            //File.WriteAllText("hammersequencetest.txt", JsonConvert.SerializeObject(seqlist, Formatting.Indented,), Encoding.UTF8);
-
-
+            HammerConfigTXT.Write(targetdirectory+ "\\GameConfig.txt", targetdirectory, settings, chkLbFgd.CheckedItems.Cast<string>());
 
             string hammersequencejson = File.ReadAllText("hammersequencetemplate.json");
             List<Sequence> hammersequencetemplate_deserialized = JsonConvert.DeserializeObject<List<Sequence>>(hammersequencejson);
+            Dictionary<string, string> hammersequencevariables = new Dictionary<string, string>();
+            hammersequencevariables["$tuxielauncher_origgamedir"] = "\""+settings.origgame.Directory + "\\" + settings.origgame.ModDirectory+"\"";
+            hammersequencevariables["$tuxielauncher_dependency_resolver"] = Path.GetDirectoryName(Application.ExecutablePath) + "\\PythonResolver\\resolver.bat";
             HammerSequence hsq = new HammerSequence();
 
-            hsq.Write(targetdirectory + "\\CmdSeq.wc", hammersequencetemplate_deserialized);
+
+            hsq.Write(targetdirectory + "\\CmdSeq.wc", hammersequencetemplate_deserialized, hammersequencevariables);
 
             // TODO: Add actual code for this
             Directory.CreateDirectory(targetdirectory + "\\cfg\\");
             MountCfg.Write(targetdirectory + "\\cfg\\mount.cfg", new string[0]);
-
-            /*using (var fbd = new FolderBrowserDialog())
-            {
-                DialogResult result = fbd.ShowDialog();
-
-                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-                {
-                    string[] files = Directory.GetFiles(fbd.SelectedPath);
-                    if (files.Length > 0) {
-                        DialogResult dr = System.Windows.Forms.MessageBox.Show("Directory not empty! Are you sure?", "Yoloswag", MessageBoxButtons.OKCancel);
-                        if(dr == DialogResult.Cancel)
-                            return;
-                        //"Files found: " + files.Length.ToString(), "Message");
-                    }
-
-                    ValveGameConfig.writeToGameinfo(fbd.SelectedPath, contentMountListBox.CheckedItems.Cast<string>());
-
-                }
-            }*/
         }
 
         private void btnStartHammer_Click(object sender, EventArgs e)
         {
             string exepath = Path.GetDirectoryName(Application.ExecutablePath);
-            var startInfo = new ProcessStartInfo();
-            startInfo.FileName = exepath + "/withdll.exe";
-            startInfo.Arguments = "/d:\""+exepath+"/DetourDLL.dll\" " + targetdirectory + "../bin/hammer.exe";
-            startInfo.WorkingDirectory = targetdirectory + "../bin/";
-            string withdllpath = exepath + "/withdll.exe";
-            string args = " /d:DetourDLL.dll /s:\"" + bindir + "\" " + bindir + "/hammer.exe";
+            Process hammerprocess = new Process();
+            hammerprocess.StartInfo.FileName = exepath + "\\withdll.exe";
+            hammerprocess.StartInfo.Arguments = "--dll=\"DetourDLL.dll\" --exe=\"" + bindir + "hammer.exe\" --workdir=\"" + bindir.TrimEnd('\\') + "\"";
+            hammerprocess.StartInfo.Environment.Add("VProject", targetdirectory);
+            hammerprocess.StartInfo.UseShellExecute = false;
+            hammerprocess.StartInfo.RedirectStandardOutput = true;
+            txtconsolebox.Text += hammerprocess.StartInfo.FileName + " " + hammerprocess.StartInfo.Arguments + "\r\n";
+            hammerprocess.Start();
+            StreamReader reader = hammerprocess.StandardOutput;
+            try
+            {
+                /*while(!hammerprocess.StandardOutput.EndOfStream)
+                { 
+                    //char r = (char)reader.Read();
+                    //txtconsolebox.Text += r;
+                }*/
+            } finally
+            {
 
-            Process.Start(withdllpath, args);
-            
+            }
+
         }
 
         private void richTextBoxAdditionalSteamDirectory_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnOpenFolder_Click(object sender, EventArgs e)
+        {
+            Process.Start(targetdirectory);
+        }
+
+        private void loadSettings()
+        {
+            string hammersequencejson = File.ReadAllText("hammersequencetemplate.json");
+            List<Sequence> hammersequencetemplate_deserialized = JsonConvert.DeserializeObject<List<Sequence>>(hammersequencejson);
+        }
+
+        private void selectedgametomodforchanged(object sender, EventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+            settings.gamedir = (string)comboBox.SelectedItem;
+            settings.Save(configname);
+            updateorigdirectory();
+        }
+
+        private void selectedtoolstousechanged(object sender, EventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+            settings.tooldir = (string)comboBox.SelectedItem;
+            settings.Save(configname);
+            updatebindir();
         }
     }
 }

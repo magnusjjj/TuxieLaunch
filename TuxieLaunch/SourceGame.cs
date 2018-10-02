@@ -14,6 +14,7 @@ namespace TuxieLaunch
         public string ProperName { get; set; }
         public bool Installed { get; set; }
         public string Directory { get; set; }
+        public string ModDirectory { get; set; }
     }
 
     public class SourceGames
@@ -81,6 +82,7 @@ namespace TuxieLaunch
             {
                 SteamName = "GarrysMod",
                 ProperName = "Garrys Mod",
+                ModDirectory = "garrysmod",
                 Installed = false,
                 Directory = ""
             });
@@ -137,6 +139,14 @@ namespace TuxieLaunch
             {
                 SteamName = "Team Fortress 2",
                 ProperName = "Team Fortress 2",
+                Installed = false,
+                Directory = ""
+            });
+
+            listOfSourceGames.Add(new SourceGame
+            {
+                SteamName = "Source SDK Base 2013 Multiplayer",
+                ProperName = "Source SDK Base 2013 Multiplayer",
                 Installed = false,
                 Directory = ""
             });

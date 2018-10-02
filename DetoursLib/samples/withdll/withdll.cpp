@@ -360,13 +360,16 @@ BOOL DumpProcess(HANDLE hp)
     return TRUE;
 }
 
-enum  optionIndex { UNKNOWN, HELP, VERBOSE };
+enum  optionIndex { UNKNOWN, HELP, VERBOSE, DLL, EXE, DIRECTORY };
 const option::Descriptor usage[] =
 {
 	{ UNKNOWN, 0, "", "",option::Arg::None, "USAGE: example [options]\n\n"
 	"Options:" },
 { HELP, 0,"", "help",option::Arg::None, "  --help  \tPrint usage and exit." },
 { VERBOSE, 0,"v","verbose",option::Arg::None, "  --verbose Set verbose mode" },
+{ DLL, 0,"d","dll",option::Arg::Optional, "  --dll add a dll" },
+{ EXE, 0,"e","exe",option::Arg::Optional, "  --exe the exe" },
+{ DIRECTORY, 0,"w","workdir",option::Arg::Optional, "  --workdir the working directory" },
 { UNKNOWN, 0, "", "",option::Arg::None, "\nExamples:\n"
 "  example --unknown -- --this_is_no_option\n"
 "  example -unk --plus -ppp file1 file2\n" },
@@ -413,25 +416,26 @@ int CDECL main(int argc, char **argv)
 
     /////////////////////////////////////////////////////////// Validate DLLs.
     //
-    for (DWORD n = 0; n < nDlls; n++) {
+
+	for (option::Option* opt = options[DLL]; opt; opt = opt->next()){
         CHAR szDllPath[1024];
         PCHAR pszFilePart = NULL;
 
-        if (!GetFullPathNameA(rpszDllsRaw[n], ARRAYSIZE(szDllPath), szDllPath, &pszFilePart)) {
+        if (!GetFullPathNameA(opt->arg, ARRAYSIZE(szDllPath), szDllPath, &pszFilePart)) {
             printf("withdll.exe: Error: %s is not a valid path name..\n",
-                   rpszDllsRaw[n]);
+                   opt->arg);
             return 9002;
         }
 
         DWORD c = (DWORD)strlen(szDllPath) + 1;
         PCHAR psz = new CHAR [c];
         StringCchCopyA(psz, c, szDllPath);
-        rpszDllsOut[n] = psz;
+        rpszDllsOut[nDlls] = psz;
 
-        HMODULE hDll = LoadLibraryExA(rpszDllsOut[n], NULL, DONT_RESOLVE_DLL_REFERENCES);
+        HMODULE hDll = LoadLibraryExA(rpszDllsOut[nDlls], NULL, DONT_RESOLVE_DLL_REFERENCES);
         if (hDll == NULL) {
             printf("withdll.exe: Error: %s failed to load (error %d).\n",
-                   rpszDllsOut[n],
+                   rpszDllsOut[nDlls],
                    GetLastError());
             return 9003;
         }
@@ -444,16 +448,17 @@ int CDECL main(int argc, char **argv)
 
         if (!ec.fHasOrdinal1) {
             printf("withdll.exe: Error: %s does not export ordinal #1.\n",
-                   rpszDllsOut[n]);
+                   rpszDllsOut[nDlls]);
             printf("             See help entry DetourCreateProcessWithDllEx in Detours.chm.\n");
             return 9004;
         }
+		nDlls++;
     }
 
     //////////////////////////////////////////////////////////////////////////
     STARTUPINFOA si;
     PROCESS_INFORMATION pi;
-    CHAR szCommand[2048];
+    CHAR* szCommand;
     CHAR szExe[1024];
     CHAR szFullExe[1024] = "\0";
     PCHAR pszFileExe = NULL;
@@ -461,28 +466,17 @@ int CDECL main(int argc, char **argv)
     ZeroMemory(&si, sizeof(si));
     ZeroMemory(&pi, sizeof(pi));
     si.cb = sizeof(si);
+	szCommand = _strdup((options[EXE].first()->arg));
 
-    szCommand[0] = L'\0';
-
-    StringCchCopyA(szExe, sizeof(szExe), argv[arg]);
-    for (; arg < argc; arg++) {
-        if (strchr(argv[arg], ' ') != NULL || strchr(argv[arg], '\t') != NULL) {
-            StringCchCatA(szCommand, sizeof(szCommand), "\"");
-            StringCchCatA(szCommand, sizeof(szCommand), argv[arg]);
-            StringCchCatA(szCommand, sizeof(szCommand), "\"");
-        }
-        else {
-            StringCchCatA(szCommand, sizeof(szCommand), argv[arg]);
-        }
-
-        if (arg + 1 < argc) {
-            StringCchCatA(szCommand, sizeof(szCommand), " ");
-        }
-    }
     printf("withdll.exe: Starting: `%s'\n", szCommand);
     for (DWORD n = 0; n < nDlls; n++) {
         printf("withdll.exe:   with `%s'\n", rpszDllsOut[n]);
     }
+
+	if (options[DIRECTORY]) {
+		printf("withdll.exe: in directory: `%s'\n", options[DIRECTORY].first()->arg);
+	}
+
     fflush(stdout);
 
     DWORD dwFlags = CREATE_DEFAULT_ERROR_MODE | CREATE_SUSPENDED;
@@ -490,7 +484,7 @@ int CDECL main(int argc, char **argv)
     SetLastError(0);
     SearchPathA(NULL, szExe, ".exe", ARRAYSIZE(szFullExe), szFullExe, &pszFileExe);
     if (!DetourCreateProcessWithDllsA(szFullExe[0] ? szFullExe : NULL, szCommand,
-                                     NULL, NULL, TRUE, dwFlags, NULL, NULL,
+                                     NULL, NULL, TRUE, dwFlags, NULL, (options[DIRECTORY].first()->arg),
                                      &si, &pi, nDlls, rpszDllsOut, NULL)) {
         DWORD dwError = GetLastError();
         printf("withdll.exe: DetourCreateProcessWithDllEx failed: %d\n", dwError);

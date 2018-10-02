@@ -1,0 +1,11 @@
+﻿{
+  "gamedir": "c:\\program files (x86)\\steam\\steamapps\\common\\GarrysMod",
+  "tooldir": "c:\\program files (x86)\\steam\\steamapps\\common\\Source SDK Base 2013 Multiplayer",
+  "origgame": {
+    "SteamName": "GarrysMod",
+    "ProperName": "Garrys Mod",
+    "Installed": true,
+    "Directory": "c:\\program files (x86)\\steam\\steamapps\\common\\GarrysMod",
+    "ModDirectory": "garrysmod"
+  }
+}

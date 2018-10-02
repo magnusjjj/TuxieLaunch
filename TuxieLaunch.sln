@@ -17,7 +17,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DetourDLL", "DetourHammerDL
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Detours4", "DetoursLib\Project2.vcxproj", "{544C52BA-9362-4D9F-9B78-40BED728294B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project1", "Project1\Project1.vcxproj", "{F77E7870-394C-4E72-844C-5B3DFE04779F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resolver", "Resolver\Resolver.csproj", "{FCED5291-DE3E-401D-9697-72F3FF9A1896}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,16 +65,18 @@ Global
 		{544C52BA-9362-4D9F-9B78-40BED728294B}.Release|x64.Build.0 = Release|x64
 		{544C52BA-9362-4D9F-9B78-40BED728294B}.Release|x86.ActiveCfg = Release|Win32
 		{544C52BA-9362-4D9F-9B78-40BED728294B}.Release|x86.Build.0 = Release|Win32
-		{F77E7870-394C-4E72-844C-5B3DFE04779F}.Debug|Any CPU.ActiveCfg = Debug|Win32
-		{F77E7870-394C-4E72-844C-5B3DFE04779F}.Debug|x64.ActiveCfg = Debug|x64
-		{F77E7870-394C-4E72-844C-5B3DFE04779F}.Debug|x64.Build.0 = Debug|x64
-		{F77E7870-394C-4E72-844C-5B3DFE04779F}.Debug|x86.ActiveCfg = Debug|Win32
-		{F77E7870-394C-4E72-844C-5B3DFE04779F}.Debug|x86.Build.0 = Debug|Win32
-		{F77E7870-394C-4E72-844C-5B3DFE04779F}.Release|Any CPU.ActiveCfg = Release|Win32
-		{F77E7870-394C-4E72-844C-5B3DFE04779F}.Release|x64.ActiveCfg = Release|x64
-		{F77E7870-394C-4E72-844C-5B3DFE04779F}.Release|x64.Build.0 = Release|x64
-		{F77E7870-394C-4E72-844C-5B3DFE04779F}.Release|x86.ActiveCfg = Release|Win32
-		{F77E7870-394C-4E72-844C-5B3DFE04779F}.Release|x86.Build.0 = Release|Win32
+		{FCED5291-DE3E-401D-9697-72F3FF9A1896}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCED5291-DE3E-401D-9697-72F3FF9A1896}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCED5291-DE3E-401D-9697-72F3FF9A1896}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FCED5291-DE3E-401D-9697-72F3FF9A1896}.Debug|x64.Build.0 = Debug|Any CPU
+		{FCED5291-DE3E-401D-9697-72F3FF9A1896}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FCED5291-DE3E-401D-9697-72F3FF9A1896}.Debug|x86.Build.0 = Debug|Any CPU
+		{FCED5291-DE3E-401D-9697-72F3FF9A1896}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCED5291-DE3E-401D-9697-72F3FF9A1896}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCED5291-DE3E-401D-9697-72F3FF9A1896}.Release|x64.ActiveCfg = Release|Any CPU
+		{FCED5291-DE3E-401D-9697-72F3FF9A1896}.Release|x64.Build.0 = Release|Any CPU
+		{FCED5291-DE3E-401D-9697-72F3FF9A1896}.Release|x86.ActiveCfg = Release|Any CPU
+		{FCED5291-DE3E-401D-9697-72F3FF9A1896}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

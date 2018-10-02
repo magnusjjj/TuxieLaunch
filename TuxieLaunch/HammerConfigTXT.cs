@@ -9,15 +9,20 @@ namespace TuxieLaunch
 {
     class HammerConfigTXT
     {
-        public static void Write(string filename, string tuxielauncher_bin_dir, string tuxielauncher_game_dir, IEnumerable<string> fgdlocations)
+        public static void Write(string filename, string targetdir, Settings settings, IEnumerable<string> fgdlocations)
         {
+            string tuxielauncher_bin_dir = settings.tooldir.TrimEnd('\\')+"\\bin";
+            string tuxielauncher_game_dir = settings.origgame.Directory+"\\"+settings.origgame.ModDirectory;//settings.gamedir;
             FileStream filein = File.Open("HammerConfigTXTTemplate.txt", FileMode.Open);
             byte[] buffer = new byte[filein.Length];
             filein.Read(buffer, 0, (int)filein.Length);
             filein.Close();
             string template = Encoding.UTF8.GetString(buffer, 0, buffer.Length);
-            template = template.Replace("TUXIELAUNCHER_BIN_DIR", tuxielauncher_bin_dir);
-            template = template.Replace("TUXIELAUNCHER_GAME_DIR", tuxielauncher_game_dir.Substring(0,tuxielauncher_game_dir.Length-1));
+            template = template.Replace("TUXIELAUNCHER_BIN_DIR", Path.GetFullPath(tuxielauncher_bin_dir));
+            template = template.Replace("TUXIELAUNCHER_MOD_DIR", Path.GetFullPath(targetdir).TrimEnd('\\'));
+            template = template.Replace("TUXIELAUNCHER_GAME_DIR", Path.GetFullPath(tuxielauncher_game_dir).TrimEnd('\\'));
+            template = template.Replace("TUXIELAUNCHER_HL2_EXE", Path.GetFullPath(tuxielauncher_game_dir+"/../hl2.exe"));
+            template = template.Replace("TUXIELAUNCHER_HL2_DIR", Path.GetFullPath(tuxielauncher_game_dir+"/../").TrimEnd('\\'));
             StringBuilder sb = new StringBuilder();
             int fgdnumber = 0;
             foreach (string item in fgdlocations)
