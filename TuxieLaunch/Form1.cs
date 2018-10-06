@@ -11,11 +11,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using System.Threading;
 
 namespace TuxieLaunch
 {
     public partial class TuxieLauncher : Form
     {
+        SynchronizationContext _syncContext;
+
         public string targetdirectory = "";
         public string bindir = "";
         public string configname = "settings.json";
@@ -24,7 +27,9 @@ namespace TuxieLaunch
 
         public TuxieLauncher()
         {
+            
             InitializeComponent();
+            _syncContext = SynchronizationContext.Current;
             // Loads the settings. The config name = the path it will look for the config in.
             settings = Settings.Load(configname);
             updateorigdirectory();
@@ -35,8 +40,8 @@ namespace TuxieLaunch
 
             // Put some debug info in some boxes
             lblMainSteam.Text = "Main steam directory: " + SourceGames.mainSteamDir;
-            richTextBoxAdditionalSteamDirectory.Lines = SourceGames.steamStores.ToArray();
-            richTextBoxAdditionalSteamDirectory.Height = TextRenderer.MeasureText(richTextBoxAdditionalSteamDirectory.Text, richTextBoxAdditionalSteamDirectory.Font).Height;
+   //         richTextBoxAdditionalSteamDirectory.Lines = SourceGames.steamStores.ToArray();
+   //         richTextBoxAdditionalSteamDirectory.Height = TextRenderer.MeasureText(richTextBoxAdditionalSteamDirectory.Text, richTextBoxAdditionalSteamDirectory.Font).Height;
             lblSteamDirs.Text = "Steam stores detected: \n"+string.Join("\n", SourceGames.steamStores);
 
             // It's time to look through the list of games, to:
@@ -158,7 +163,7 @@ namespace TuxieLaunch
             MountCfg.Write(targetdirectory + "\\cfg\\mount.cfg", new string[0]);
         }
 
-        private void btnStartHammer_Click(object sender, EventArgs e)
+        private void btnStartHammer_Click(object snd, EventArgs e)
         {
             string exepath = Path.GetDirectoryName(Application.ExecutablePath);
             Process hammerprocess = new Process();
@@ -167,21 +172,20 @@ namespace TuxieLaunch
             hammerprocess.StartInfo.Environment.Add("VProject", targetdirectory);
             hammerprocess.StartInfo.UseShellExecute = false;
             hammerprocess.StartInfo.RedirectStandardOutput = true;
-            txtconsolebox.Text += hammerprocess.StartInfo.FileName + " " + hammerprocess.StartInfo.Arguments + "\r\n";
+            hammerprocess.StartInfo.RedirectStandardInput = true;
+            hammerprocess.StartInfo.RedirectStandardError = true;
+            hammerprocess.StartInfo.CreateNoWindow = true;
+            hammerprocess.OutputDataReceived += (sender, args) => debugtext(args.Data);
+            hammerprocess.ErrorDataReceived += (sender, args) => debugtext(args.Data);
+            txtDebug.Text += hammerprocess.StartInfo.FileName + " " + hammerprocess.StartInfo.Arguments + "\r\n";
             hammerprocess.Start();
-            StreamReader reader = hammerprocess.StandardOutput;
-            try
-            {
-                /*while(!hammerprocess.StandardOutput.EndOfStream)
-                { 
-                    //char r = (char)reader.Read();
-                    //txtconsolebox.Text += r;
-                }*/
-            } finally
-            {
+            hammerprocess.BeginOutputReadLine();
+            hammerprocess.BeginErrorReadLine();
+        }
 
-            }
-
+        void debugtext(string data)
+        {
+            _syncContext.Post(_ => txtDebug.AppendText(data+"\r\n"), null);
         }
 
         private void richTextBoxAdditionalSteamDirectory_TextChanged(object sender, EventArgs e)
@@ -214,6 +218,17 @@ namespace TuxieLaunch
             settings.tooldir = (string)comboBox.SelectedItem;
             settings.Save(configname);
             updatebindir();
+        }
+
+        private void btnAbout_Click(object sender, EventArgs e)
+        {
+            AboutForm abouty = new AboutForm();
+            abouty.Show();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

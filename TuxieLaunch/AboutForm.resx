@@ -117,21 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="label5.Text" xml:space="preserve">
-    <value>Welcome to TuxieLauncher!
-If this is the first time you have launched it, some introductions are in order.
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>TuxieLauncher is made primarily by Magnus "Tuxie" Johnsson.
+The name is a boring test name. Come up with something better, and a logo, and it changes xD.
 
-This tool helps with setting up the ill-behaved Hammer level editor.
-It creates a new game directory, just for your mapping, where you can store all the materials, models, and other resources, seperate from the main game directory.
-This lets you create maps with custom textures and models, and what you see ingame while testing is exactly what your other players will see.
-The launcher automatically inserts an extra command that automatically packs any textures or models you are using inside of your map when you are compiling, so no need to launch a separate tool for that.
-The launcher also, when launching hammer, inserts a bit of code into it (dll injection, you can read more.. [todo: link :P]) just for that session, that redirects any access to any configuration files or registry keys.
-This both means that it shouldn't overwrite any of hammers configuration files, so you shouldn't need to worry about this launcher trampling any of your settings.
-(Then again, it might trample all of your hammer config files, set fire to any potential cats, and then gently lube your popcorn and turn your cereal mushy)
+It's code is licensed under the GPL, and you can find it at: https://github.com/magnusjjj/tuxielaunch
 
-The rest of this page just shows you what information the launcher has gathered from your system. It should list both the installation folder of steam as the 'main steam directory', and all of the 'steam stores'.
-Steam stores is valves name for extra folders it can store games in, on any number of harddrives.
+Includes code written by Wazanator for Source MultiTool. You should check that tool out, it's awesome, and you can find it at:
 
-If anything looks wrong anywhere, poke Tuxie. Check the about button up on the top right for contact information.</value>
+https://steamcommunity.com/groups/SourceMultiTool
+
+Includes Newtonsoft JSON, and Microsoft Detours, both licensed under the MIT license.</value>
   </data>
 </root>
