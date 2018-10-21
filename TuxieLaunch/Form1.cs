@@ -40,8 +40,6 @@ namespace TuxieLaunch
 
             // Put some debug info in some boxes
             lblMainSteam.Text = "Main steam directory: " + SourceGames.mainSteamDir;
-   //         richTextBoxAdditionalSteamDirectory.Lines = SourceGames.steamStores.ToArray();
-   //         richTextBoxAdditionalSteamDirectory.Height = TextRenderer.MeasureText(richTextBoxAdditionalSteamDirectory.Text, richTextBoxAdditionalSteamDirectory.Font).Height;
             lblSteamDirs.Text = "Steam stores detected: \n"+string.Join("\n", SourceGames.steamStores);
 
             // It's time to look through the list of games, to:
@@ -58,19 +56,24 @@ namespace TuxieLaunch
                 // We only want to add the games that are actually, you know, installed.
                 if (g.Installed) {
                     // Add the games to the list of games you can mod for, and use tools from
-                    int tempgameid = ddGameToModFor.Items.Add(g.Directory);
-                    int temptoolid = ddTools.Items.Add(g.Directory);
-
                     // Here, we check if we have already saved what tools/games to use, and if so select them in the drop down boxes
-                    if(g.Directory == settings.gamedir)
-                    {
-                        ddGameToModFor.SelectedIndex = tempgameid;
-                        settings.origgame = g;
+
+                    if (g.IsMappableGame) { 
+                        int tempgameid = ddGameToModFor.Items.Add(g.Directory);
+                        if (g.Directory == settings.gamedir)
+                        {
+                            ddGameToModFor.SelectedIndex = tempgameid;
+                            settings.origgame = g;
+                        }
                     }
 
-                    if (g.Directory == settings.tooldir)
+                    if (g.IsTool)
                     {
-                        ddTools.SelectedIndex = temptoolid;
+                        int temptoolid = ddTools.Items.Add(g.Directory);
+                        if (g.Directory == settings.tooldir)
+                        {
+                            ddTools.SelectedIndex = temptoolid;
+                        }
                     }
 
 
@@ -118,13 +121,58 @@ namespace TuxieLaunch
                     }
                 }
             }
+
+            if (Directory.Exists(targetdirectory))
+            {
+                lblNotConfigured.Visible = false;
+                btnStartHammer.Enabled = true;
+                btnOpenFolder.Enabled = true;
+            } else
+            {
+                lblNotConfigured.Visible = true;
+                btnStartHammer.Enabled = false;
+                btnOpenFolder.Enabled = false;
+            }
+
+
             
+        }
+
+        private void updatevalidation()
+        {
+            if (settings.gamedir.Length > 0)
+            {
+                ddGameToModFor.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                ddGameToModFor.BackColor = Color.LightSalmon;
+            }
+
+            if (settings.gamedir.Length > 0)
+            {
+                ddTools.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                ddTools.BackColor = Color.LightSalmon;
+            }
+
+            if(ddTools.BackColor == Color.LightGreen && ddGameToModFor.BackColor == Color.LightGreen)
+            {
+                btnGamemodeCreate.Enabled = true;
+            } else
+            {
+                btnGamemodeCreate.Enabled = false;
+            }
         }
 
         private void updatebindir()
         {
             bindir = settings.tooldir + "\\bin\\";
             targetdirectory = settings.tooldir + "\\TuxieLauncher\\";
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -144,6 +192,29 @@ namespace TuxieLaunch
 
             Directory.CreateDirectory(targetdirectory);
             Directory.CreateDirectory(targetdirectory+"\\materials\\");
+            Directory.CreateDirectory(targetdirectory + "\\autosave\\");
+            Directory.CreateDirectory(targetdirectory + "\\vmfdir\\");
+
+            // Copied from https://stackoverflow.com/questions/58744/copy-the-entire-contents-of-a-directory-in-c-sharp . Shutup, tired, ok?
+
+            string source_dir = Path.GetDirectoryName(Application.ExecutablePath)+"\\samplecontent\\";
+            string destination_dir = targetdirectory;
+
+            // substring is to remove destination_dir absolute path (E:\).
+
+            // Create subdirectory structure in destination    
+            foreach (string dir in System.IO.Directory.GetDirectories(source_dir, "*", System.IO.SearchOption.AllDirectories))
+            {
+                System.IO.Directory.CreateDirectory(System.IO.Path.Combine(destination_dir, dir));
+                // Example:
+                //     > C:\sources (and not C:\E:\sources)
+            }
+
+            foreach (string file_name in System.IO.Directory.GetFiles(source_dir, "*", System.IO.SearchOption.AllDirectories))
+            {
+                System.IO.File.Copy(file_name, System.IO.Path.Combine(destination_dir, file_name.Substring(source_dir.Length)));
+            }
+
 
             ValveGameInfoTXT.writeToGameinfo(targetdirectory, contentMountListBox.CheckedItems.Cast<string>());
             HammerConfigTXT.Write(targetdirectory+ "\\GameConfig.txt", targetdirectory, settings, chkLbFgd.CheckedItems.Cast<string>());
@@ -161,6 +232,12 @@ namespace TuxieLaunch
             // TODO: Add actual code for this
             Directory.CreateDirectory(targetdirectory + "\\cfg\\");
             MountCfg.Write(targetdirectory + "\\cfg\\mount.cfg", new string[0]);
+
+            updateorigdirectory();
+
+            HammerRegistryConfig.Configurehammer(targetdirectory);
+
+            System.Windows.Forms.MessageBox.Show("Success! :D");
         }
 
         private void btnStartHammer_Click(object snd, EventArgs e)
@@ -169,7 +246,7 @@ namespace TuxieLaunch
             Process hammerprocess = new Process();
             hammerprocess.StartInfo.FileName = exepath + "\\withdll.exe";
             hammerprocess.StartInfo.Arguments = "--dll=\"DetourDLL.dll\" --exe=\"" + bindir + "hammer.exe\" --workdir=\"" + bindir.TrimEnd('\\') + "\"";
-            hammerprocess.StartInfo.Environment.Add("VProject", targetdirectory);
+            hammerprocess.StartInfo.Environment.Add("VProject", targetdirectory.TrimEnd('\\'));
             hammerprocess.StartInfo.UseShellExecute = false;
             hammerprocess.StartInfo.RedirectStandardOutput = true;
             hammerprocess.StartInfo.RedirectStandardInput = true;
@@ -210,6 +287,7 @@ namespace TuxieLaunch
             settings.gamedir = (string)comboBox.SelectedItem;
             settings.Save(configname);
             updateorigdirectory();
+            updatevalidation();
         }
 
         private void selectedtoolstousechanged(object sender, EventArgs e)
@@ -218,6 +296,7 @@ namespace TuxieLaunch
             settings.tooldir = (string)comboBox.SelectedItem;
             settings.Save(configname);
             updatebindir();
+            updatevalidation();
         }
 
         private void btnAbout_Click(object sender, EventArgs e)
@@ -229,6 +308,16 @@ namespace TuxieLaunch
         private void label5_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

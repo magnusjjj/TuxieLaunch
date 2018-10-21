@@ -1,0 +1,98 @@
+[
+  {
+    "SteamName": "Contagion",
+    ProperName: "Contagion",
+    Installed: false,
+    Directory: ""
+  },
+  {
+    "SteamName": "Counter-Strike Global Offensive",
+    ProperName: "Counter-Strike Global Offensive",
+    Installed: false,
+    Directory: ""
+  },
+  {
+    "SteamName": "Counter-Strike Source",
+    ProperName: "Counter-Strike Source",
+    Installed: false,
+    Directory: ""
+  },
+  {
+    "SteamName": "Day of Defeat Source",
+    ProperName: "Day of Defeat Source",
+    Installed: false,
+    Directory: ""
+  },
+  {
+    "SteamName": "dayofinfamy",
+    ProperName: "Day of Infamy",
+    Installed: false,
+    Directory: ""
+  },
+  {
+    "SteamName": "GarrysMod",
+    "ProperName": "Garrys Mod",
+    "ModDirectory": "garrysmod",
+    "Installed": false,
+    "Directory": "",
+    "IsTool": false,
+    "IsMappableGame": true
+  },
+  {
+    "SteamName": "Half-Life 2",
+    ProperName: "Half-Life 2",
+    Installed: false,
+    Directory: ""
+  },
+  {
+    "SteamName": "insurgency2",
+    ProperName: "Insurgency",
+    Installed: false,
+    Directory: ""
+  },
+  {
+    "SteamName": "insurgency2",
+    ProperName: "Insurgency",
+    Installed: false,
+    Directory: ""
+  },
+  {
+    "SteamName": "Left 4 Dead 2",
+    ProperName: "Left 4 Dead 2",
+    Installed: false,
+    Directory: ""
+  },
+  {
+    "SteamName": "nmrih",
+    ProperName: "No More Room In Hell",
+    Installed: false,
+    Directory: ""
+  },
+  {
+    "SteamName": "Portal",
+    ProperName: "Portal",
+    Installed: false,
+    Directory: ""
+  },
+  {
+    "SteamName": "Portal 2",
+    ProperName: "Portal 2",
+    Installed: false,
+    Directory: ""
+  },
+  {
+    "SteamName": "Team Fortress 2",
+    ProperName: "Team Fortress 2",
+    Installed: false,
+    Directory: ""
+  },
+  {
+    "SteamName": "Source SDK Base 2013 Multiplayer",
+    "ProperName": "Source SDK Base 2013 Multiplayer",
+    "Installed": false,
+    "Directory": "",
+    "ModDirectory": "hl2mp",
+    "IsTool": true,
+    "IsMappableGame": false
+  }
+]

@@ -3,6 +3,7 @@
 	"^nature/.*$"],
 	"materialspec": [
 		{"name": "lightmappedgeneric", "type": "object"},
+		{"name": "decal", "type":"object"},
 		{"name": "lightshafts", "type": "object"},
 		{"name": "infected", "type": "object"},
 		{"name": "occlusion", "type": "object"},

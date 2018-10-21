@@ -117,6 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Games missing here? That's because there are only two games defined right now. Poke Tuxie (contact details in the about box).
+You might need to gift him the game in question, because he is a scrub.
+Or try and add it in games.json</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Here are probably the two most important settings.
+The first is pretty self-explanatory, its the game to map for.
+The second is which hammer and tools you want to use.
+The reason they are seperate is that Garrys Mod *needs* to use Source SDK Multiplayer Base instad of it's bundled hammer.
+
+Game to map for:</value>
+  </data>
   <data name="label5.Text" xml:space="preserve">
     <value>Welcome to TuxieLauncher!
 If this is the first time you have launched it, some introductions are in order.
@@ -133,5 +146,11 @@ The rest of this page just shows you what information the launcher has gathered 
 Steam stores is valves name for extra folders it can store games in, on any number of harddrives.
 
 If anything looks wrong anywhere, poke Tuxie. Check the about button up on the top right for contact information.</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Time to create the gamemode, so we can actually use Hammer.
+Below, you have a couple of settings. Fill them in, then hit 'create gamemode'.
+This will create the folder, fill it up with some standard content, settings, and some sample content to show that it works.
+Oh, and unlock the tool buttons above ;).</value>
   </data>
 </root>

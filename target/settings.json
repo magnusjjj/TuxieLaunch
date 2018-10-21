@@ -6,6 +6,8 @@
     "ProperName": "Garrys Mod",
     "Installed": true,
     "Directory": "c:\\program files (x86)\\steam\\steamapps\\common\\GarrysMod",
-    "ModDirectory": "garrysmod"
+    "ModDirectory": "garrysmod",
+    "IsTool": false,
+    "IsMappableGame": true
   }
 }

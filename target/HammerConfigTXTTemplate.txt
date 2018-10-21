@@ -19,6 +19,7 @@ TUXIELAUNCHER_GAMEDATA_LIST
 				"Vis"		"TUXIELAUNCHER_BIN_DIR\vvis.exe"
 				"Light"		"TUXIELAUNCHER_BIN_DIR\vrad.exe"
 				"BSPDir"	"TUXIELAUNCHER_GAME_DIR\maps"
+				"MapDir" "TUXIELAUNCHER_MOD_DIR\vmfdir"
 				"GameExeDir"		"TUXIELAUNCHER_HL2_DIR"
 				"CordonTexture"		"BLACK"
 				"MaterialExcludeCount"		"0"

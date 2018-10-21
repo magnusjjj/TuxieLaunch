@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,11 +11,13 @@ namespace TuxieLaunch
 {
     public class SourceGame
     {
-        public string SteamName { get; set; }
-        public string ProperName { get; set; }
-        public bool Installed { get; set; }
-        public string Directory { get; set; }
-        public string ModDirectory { get; set; }
+        public string SteamName = "";
+        public string ProperName = "";
+        public bool Installed = false;
+        public string Directory = "";
+        public string ModDirectory = "";
+        public bool IsTool = false;
+        public bool IsMappableGame = false;
     }
 
     public class SourceGames
@@ -43,120 +46,15 @@ namespace TuxieLaunch
         {
             List<SourceGame> listOfSourceGames = new List<SourceGame>();
 
-            listOfSourceGames.Add(new SourceGame
-            {
-                SteamName = "Contagion",
-                ProperName = "Contagion",
-                Installed = false,
-                Directory = ""
-            });
-            listOfSourceGames.Add(new SourceGame
-            {
-                SteamName = "Counter-Strike Global Offensive",
-                ProperName = "Counter-Strike Global Offensive",
-                Installed = false,
-                Directory = ""
-            });
-            listOfSourceGames.Add(new SourceGame
-            {
-                SteamName = "Counter-Strike Source",
-                ProperName = "Counter-Strike Source",
-                Installed = false,
-                Directory = ""
-            });
-            listOfSourceGames.Add(new SourceGame
-            {
-                SteamName = "Day of Defeat Source",
-                ProperName = "Day of Defeat Source",
-                Installed = false,
-                Directory = ""
-            });
-            listOfSourceGames.Add(new SourceGame
-            {
-                SteamName = "dayofinfamy",
-                ProperName = "Day of Infamy",
-                Installed = false,
-                Directory = ""
-            });
-            listOfSourceGames.Add(new SourceGame
-            {
-                SteamName = "GarrysMod",
-                ProperName = "Garrys Mod",
-                ModDirectory = "garrysmod",
-                Installed = false,
-                Directory = ""
-            });
-            listOfSourceGames.Add(new SourceGame
-            {
-                SteamName = "Half-Life 2",
-                ProperName = "Half-Life 2",
-                Installed = false,
-                Directory = ""
-            });
-            listOfSourceGames.Add(new SourceGame
-            {
-                SteamName = "insurgency2",
-                ProperName = "Insurgency",
-                Installed = false,
-                Directory = ""
-            });
-            listOfSourceGames.Add(new SourceGame
-            {
-                SteamName = "insurgency2",
-                ProperName = "Insurgency",
-                Installed = false,
-                Directory = ""
-            });
-            listOfSourceGames.Add(new SourceGame
-            {
-                SteamName = "Left 4 Dead 2",
-                ProperName = "Left 4 Dead 2",
-                Installed = false,
-                Directory = ""
-            });
-            listOfSourceGames.Add(new SourceGame
-            {
-                SteamName = "nmrih",
-                ProperName = "No More Room In Hell",
-                Installed = false,
-                Directory = ""
-            });
-            listOfSourceGames.Add(new SourceGame
-            {
-                SteamName = "Portal",
-                ProperName = "Portal",
-                Installed = false,
-                Directory = ""
-            });
-            listOfSourceGames.Add(new SourceGame
-            {
-                SteamName = "Portal 2",
-                ProperName = "Portal 2",
-                Installed = false,
-                Directory = ""
-            });
-            listOfSourceGames.Add(new SourceGame
-            {
-                SteamName = "Team Fortress 2",
-                ProperName = "Team Fortress 2",
-                Installed = false,
-                Directory = ""
-            });
-
-            listOfSourceGames.Add(new SourceGame
-            {
-                SteamName = "Source SDK Base 2013 Multiplayer",
-                ProperName = "Source SDK Base 2013 Multiplayer",
-                Installed = false,
-                Directory = ""
-            });
-
+            string gamesjson = File.ReadAllText("games.json");
+            listOfSourceGames = JsonConvert.DeserializeObject<List<SourceGame>>(gamesjson);
             return listOfSourceGames;
         }
 
         public static string grabSteamRegistry()
         {
             string name = "Software\\Valve\\Steam";
+            
             return Registry.CurrentUser.OpenSubKey(name).GetValue("SteamPath").ToString().Replace("/", "\\");
         }
 
