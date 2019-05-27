@@ -252,7 +252,23 @@ namespace TuxieLaunch
             string exepath = Path.GetDirectoryName(Application.ExecutablePath);
             Process hammerprocess = new Process();
             hammerprocess.StartInfo.FileName = exepath + "\\withdll.exe";
-            hammerprocess.StartInfo.Arguments = "--dll=\"DetourDLL.dll\" --exe=\"" + bindir + "hammer.exe\" --workdir=\"" + bindir.TrimEnd('\\') + "\"";
+            string overlaydir = Directory.GetCurrentDirectory() + "\\overlay\\";
+            string filetest = "overlay/bin/hammer.exe";
+            if(File.Exists(filetest)){
+                var enviromentPath = System.Environment.GetEnvironmentVariable("PATH");
+                hammerprocess.StartInfo.Environment["PATH"] += ";" + Directory.GetCurrentDirectory()+";"+overlaydir+"\\bin\\";
+                hammerprocess.StartInfo.Arguments = "--dll=\"liar.dll\" --exe=\"" + filetest + "\" --workdir=\"" + bindir.TrimEnd('\\') + "\"";
+                debugtext("Found overlay hammer");
+                debugtext("Current directory: " + Directory.GetCurrentDirectory());
+                debugtext("Starting with path: " + hammerprocess.StartInfo.Environment["PATH"]);
+                hammerprocess.StartInfo.Environment.Add("TUXIELAUNCHER_OVERLAY_DIRECTORY", overlaydir);
+                hammerprocess.StartInfo.Environment.Add("TUXIELAUNCHER_SDK_DIRECTORY", settings.tooldir);
+                debugtext("Overlay directory is at: " + overlaydir);
+                debugtext("SDK directory is at: " + settings.tooldir);
+            } else
+            {
+                hammerprocess.StartInfo.Arguments = "--dll=\"liar.dll\" --exe=\"" + bindir + "hammer.exe\" --workdir=\"" + bindir.TrimEnd('\\') + "\"";
+            }
             hammerprocess.StartInfo.Environment.Add("VProject", targetdirectory.TrimEnd('\\'));
             hammerprocess.StartInfo.UseShellExecute = false;
             hammerprocess.StartInfo.RedirectStandardOutput = true;
