@@ -76,7 +76,7 @@ end
 
 function registry_redirect_bad(inkey)
 	if inkey == "Hammer" then
-		return "HammerTuxieLauncher2"
+		return "HammerTuxieLauncher"
 	end
 	return inkey
 end
