@@ -10,7 +10,8 @@ files_to_redirect_in_profile = {"GameConfig.txt", "CmdSeq.wc"}
 
 print("Files to redirect: ")
 for key,value in pairs(files_to_redirect) do
-	print(value)
+	files_to_redirect[key] = value:sub(#path_nobin+1)
+	print(files_to_redirect[key])
 end
 
 local function starts_with(str, start)
@@ -28,50 +29,23 @@ function file_create(filename)
 			return profile_directory .. "\\" .. value
 		end
 	end
-
-	--[[
-	-- Check if any of the files match our list of files to redirect
+	
 	for key,value in pairs(files_to_redirect) do
-		if ends_with(filename,value) then
-			print("SIMPLE")
-			return path_nobin .. "\\" .. value
+		if ends_with(filename, value) then
+			return path_nobin .. value
 		end
 	end
 	
-
-	-- *sometimes* we get a request for a /bin directory, and sometimes not. I think it depends on the syscall. Dirty hack here.
-    if starts_with(filename, path) then
-		-- Here we go. This is a call to find a file in *our* part of town
-		print("STRANGE PATH")
-		
-
-		
-		-- Return an edited filename
-		return topath .. "bin\\" .. filename:sub(#path+1)
-	end
-	--]]
-
+	return filename
 	
-    if starts_with(filename, path_nobin) then
+end
 
-		-- Here we go. This is a call to find a file in *our* part of town
-		
-		--[[
-		-- Check if any of the files match our list of files to redirect
-		for key,value in pairs(files_to_redirect) do
-			if ends_with(filename,value) then
-				print("SIMPLE 2")
-				return filename
-			end
-		end
-		--]]
-		--print(filename:sub(#path_nobin+1))
-		-- Return an edited filename
-		print("COMPLEX")
-		return topath .. "\\" .. filename:sub(#path_nobin+1)
-    else
-        return filename
-    end
+function file_fake_real_filename(filename)
+	if starts_with(filename, path_nobin) then
+		filename_relative = filename:sub(#path_nobin+1)
+		return topath .. "\\" .. filename_relative
+	end
+	return filename
 end
 
 function registry_redirect_bad(inkey)
@@ -79,4 +53,12 @@ function registry_redirect_bad(inkey)
 		return "HammerTuxieLauncher"
 	end
 	return inkey
+end
+
+function createprocess_redirect(filename)
+	print("Hello")
+	if starts_with(filename, topath) then
+		return path_nobin .. filename:sub(#topath+1)
+	end
+	return filename
 end

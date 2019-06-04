@@ -33,6 +33,7 @@ BOOL WINAPI DllMain(HINSTANCE hinst, DWORD dwReason, LPVOID reserved)
 		DetourRestoreAfterWith();
 
 		char path[MAX_PATH];
+		char exepath[MAX_PATH] = "";
 
 		printf("liar" DETOURS_STRINGIFY(DETOURS_BITS) ".dll:"
 			" Starting.\n");
@@ -40,6 +41,8 @@ BOOL WINAPI DllMain(HINSTANCE hinst, DWORD dwReason, LPVOID reserved)
 		char pathout[MAX_PATH] = "";
 		char patherr[MAX_PATH] = "";
 		char pathscript[MAX_PATH] = "";
+		
+
 		HMODULE hm = NULL;
 
 		if (DetourIsHelperProcess()) {
@@ -48,23 +51,45 @@ BOOL WINAPI DllMain(HINSTANCE hinst, DWORD dwReason, LPVOID reserved)
 
 
 		GetModuleFileName((HINSTANCE)&__ImageBase, path, _countof(path));
+		GetModuleFileName(NULL, exepath, _countof(exepath));
+		printf("Exe name: %s\n", exepath);
+
 		char path_buffer[_MAX_PATH];
 		char drive[_MAX_DRIVE];
 		char dir[_MAX_DIR];
 		char fname[_MAX_FNAME];
 		char ext[_MAX_EXT];
 
+		char path_buffer_exe[_MAX_PATH];
+		char drive_exe[_MAX_DRIVE];
+		char dir_exe[_MAX_DIR];
+		char fname_exe[_MAX_FNAME];
+		char ext_exe[_MAX_EXT];
+
 		_splitpath(path, drive, dir, fname, ext);
+		_splitpath(exepath, drive_exe, dir_exe, fname_exe, ext_exe);
+		printf("Exe name: %s drive: %s dir_exe: %s fname_exe: %s ext_exe: %s\n", exepath, drive_exe, dir_exe, fname_exe, ext_exe);
+
+		std::string logpath = "";
+		std::string errorlogpath = "";
+
+		logpath = logpath + drive + "\\" + dir + fname_exe + "_log.txt";
+
+		printf("Log file path: %s", logpath.c_str());
+
+		strcpy(path_buffer_exe, fname_exe);
+		strcpy(path_buffer_exe, "log.txt");
+
 		strcpy(path_buffer, drive);
 		strcat(path_buffer, "\\");
 		strcat(path_buffer, dir);
 
 		strcpy(pathout, path_buffer);
-		strcat(pathout, "freopen.out");
+		strcat(pathout, path_buffer_exe);
 
 		strcpy(patherr, path_buffer);
-		strcat(patherr, "freopen.out");
-
+		strcpy(patherr, fname_exe);
+		strcpy(patherr, "log_err.txt");
 
 		strcpy(pathscript, drive);
 		strcat(pathscript, "\\");
@@ -72,7 +97,7 @@ BOOL WINAPI DllMain(HINSTANCE hinst, DWORD dwReason, LPVOID reserved)
 		strcat(pathscript, "redirect.lua");
 
 		// Next up, redirect stdout and stderr. You can uncomment these if your program is a shell application. Otherwise, uh. Confusion?
-		freopen(pathout, "w", stdout);
+		freopen(logpath.c_str(), "w", stdout);
 		freopen(patherr, "w", stderr);
 
 
@@ -80,6 +105,7 @@ BOOL WINAPI DllMain(HINSTANCE hinst, DWORD dwReason, LPVOID reserved)
 		printf("liar" DETOURS_STRINGIFY(DETOURS_BITS) ".dll:"
 			" Starting in %s\n", pathout);
 		fflush(stdout); // Forces a flush to the file, so we know it hasn't just stalled.
+
 
 		// Time to tell detours to get going.
 		DetourTransactionBegin();
@@ -107,7 +133,8 @@ BOOL WINAPI DllMain(HINSTANCE hinst, DWORD dwReason, LPVOID reserved)
 		DetourAttach(&(PVOID&)TrueGetModuleFileNameW, RedirectedGetModuleFileNameW);
 		DetourAttach(&(PVOID&)TrueGetModuleFileNameA, RedirectedGetModuleFileNameA);
 		DetourAttach(&(PVOID&)TrueRegCreateKeyExA, RedirectedRegCreateKeyExA);
-		
+		DetourAttach(&(PVOID&)TrueCreateProcessA, RedirectedCreateProcessA);
+		DetourAttach(&(PVOID&)TrueCreateProcessW, RedirectedCreateProcessW);
 
 		error = DetourTransactionCommit();
 
@@ -135,6 +162,8 @@ BOOL WINAPI DllMain(HINSTANCE hinst, DWORD dwReason, LPVOID reserved)
 		DetourDetach(&(PVOID&)TrueGetModuleFileNameW, RedirectedGetModuleFileNameW);
 		DetourDetach(&(PVOID&)TrueGetModuleFileNameA, RedirectedGetModuleFileNameA);
 		DetourDetach(&(PVOID&)TrueRegCreateKeyExA, RedirectedRegCreateKeyExA);
+		DetourDetach(&(PVOID&)TrueCreateProcessA, RedirectedCreateProcessA);
+		DetourDetach(&(PVOID&)TrueCreateProcessW, RedirectedCreateProcessW);
 		error = DetourTransactionCommit();
 
 		fflush(stdout);

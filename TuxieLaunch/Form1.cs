@@ -257,7 +257,7 @@ namespace TuxieLaunch
 
             hammerprocess.StartInfo.Environment.Add("TUXIELAUNCHER_OVERLAY_DIRECTORY", overlaydir);
             hammerprocess.StartInfo.Environment.Add("TUXIELAUNCHER_SDK_DIRECTORY", settings.tooldir);
-            hammerprocess.StartInfo.Environment["PATH"] += ";" + Directory.GetCurrentDirectory() + ";" + overlaydir + "\\bin\\";
+            hammerprocess.StartInfo.Environment["PATH"] += ";" + Directory.GetCurrentDirectory() + ";" + overlaydir + "bin";
             debugtext("Overlay directory is at: " + overlaydir);
             debugtext("SDK directory is at: " + settings.tooldir);
 

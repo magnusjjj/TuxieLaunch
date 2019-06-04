@@ -1,5 +1,6 @@
 #include "APIMove.h"
 #include "debugliar.h"
+#include  <detours.h>
 
 HANDLE(WINAPI * TrueCreateFileA)(
 	LPCSTR                lpFileName,
@@ -72,7 +73,31 @@ LSTATUS(WINAPI * TrueRegCreateKeyExA)(
 	LPDWORD                     lpdwDisposition
 	) = RegCreateKeyExA;
 
+BOOL (WINAPI * TrueCreateProcessA)(
+	LPCSTR                lpApplicationName,
+	LPSTR                 lpCommandLine,
+	LPSECURITY_ATTRIBUTES lpProcessAttributes,
+	LPSECURITY_ATTRIBUTES lpThreadAttributes,
+	BOOL                  bInheritHandles,
+	DWORD                 dwCreationFlags,
+	LPVOID                lpEnvironment,
+	LPCSTR                lpCurrentDirectory,
+	LPSTARTUPINFOA        lpStartupInfo,
+	LPPROCESS_INFORMATION lpProcessInformation
+) = CreateProcessA;
 
+BOOL (WINAPI * TrueCreateProcessW)(
+	LPCWSTR               lpApplicationName,
+	LPWSTR                lpCommandLine,
+	LPSECURITY_ATTRIBUTES lpProcessAttributes,
+	LPSECURITY_ATTRIBUTES lpThreadAttributes,
+	BOOL                  bInheritHandles,
+	DWORD                 dwCreationFlags,
+	LPVOID                lpEnvironment,
+	LPCWSTR               lpCurrentDirectory,
+	LPSTARTUPINFOW        lpStartupInfo,
+	LPPROCESS_INFORMATION lpProcessInformation
+) = CreateProcessW;
 
 // Aw yiiiis, lets have some actual handlers all up in this bznzzzzz
 
@@ -144,8 +169,9 @@ HANDLE WINAPI RedirectedCreateFileA(LPCSTR                lpFileName,
 	// Call the *original* filesystem call
 	HANDLE ret = TrueCreateFileA(filenameredirected, dwDesiredAccess, dwShareMode, lpSecurityAttributes, dwCreationDisposition, dwFlagsAndAttributes, hTemplateFile);
 	// Cleanup
-	free((void *)filenameredirected);
+	
 	LIAR_DEBUG("In redirectedcreatefilea, infile: %s outfile: %s handle %x\n", lpFileName, filenameredirected, (unsigned int)ret);
+	free((void *)filenameredirected);
 	return ret;
 }
 
@@ -293,9 +319,10 @@ HMODULE WINAPI  RedirectedLoadLibraryExA(
 	// Call the *original* filesystem call
 	HMODULE ret = TrueLoadLibraryExA(filenameredirected, hFile, dwFlags);
 	// Cleanup
-	free((void *)filenameredirected);
+	
 	LIAR_DEBUG_INTRICATE("Done in redirectedloadlibraryexa\n");
 	LIAR_DEBUG("In redirectedloadlibraryexa infile: %s outfile: %s Handle: %x\n", lpLibFileName, filenameredirected, (unsigned int)ret);
+	free((void *)filenameredirected);
 	return ret;
 }
 
@@ -311,7 +338,7 @@ DWORD WINAPI RedirectedGetModuleFileNameA(HMODULE hModule,
 	// Lock lua! Be nice!
 	lua->getLock();
 	// Set the function name we want to call!
-	lua->setFunctionName("file_create");
+	lua->setFunctionName("file_fake_real_filename");
 	// Push the filename someone tried to access
 	lua->pushlpcstr(lpFilename);
 	// BAM! Call that!
@@ -349,7 +376,7 @@ DWORD WINAPI RedirectedGetModuleFileNameW(HMODULE hModule,
 	LIAR_DEBUG_INTRICATE("Got lock\n");
 
 	// Set the function name we want to call!
-	lua->setFunctionName("file_create");
+	lua->setFunctionName("file_fake_real_filename");
 	// Push the filename someone tried to access
 	LIAR_DEBUG_INTRICATE("In before execute\n");
 	//
@@ -407,8 +434,73 @@ LSTATUS WINAPI RedirectedRegCreateKeyExA(
 	// Call the *original* filesystem call
 	LSTATUS ret = TrueRegCreateKeyExA(hKey, keyredirected, Reserved, lpClass, dwOptions, samDesired, lpSecurityAttributes, phkResult, lpdwDisposition);
 	// Cleanup
-	free((void *)keyredirected);
+	
 	LIAR_DEBUG_INTRICATE("Done in RedirectedRegCreateKeyExA\n");
 	LIAR_DEBUG("In RedirectedRegCreateKeyExA inkey: %s outkey: %s lstatus: %x\n", lpSubKey, keyredirected, ret);
+	free((void *)keyredirected);
+	return ret;
+}
+
+BOOL WINAPI RedirectedCreateProcessA(
+	LPCSTR                lpApplicationName,
+	LPSTR                 lpCommandLine,
+	LPSECURITY_ATTRIBUTES lpProcessAttributes,
+	LPSECURITY_ATTRIBUTES lpThreadAttributes,
+	BOOL                  bInheritHandles,
+	DWORD                 dwCreationFlags,
+	LPVOID                lpEnvironment,
+	LPCSTR                lpCurrentDirectory,
+	LPSTARTUPINFOA        lpStartupInfo,
+	LPPROCESS_INFORMATION lpProcessInformation
+) {
+
+	BOOL ret;
+	if (lpApplicationName == NULL) {
+		lua->getLock();
+		lua->setFunctionName("createprocess_redirect");
+		lua->pushlpcstr(lpCommandLine);
+		lua->executeFunction(1, 1);
+		LPSTR procredirected = (LPSTR)lua->poplpcstr();
+		lua->releaseLock();
+		DetourTransactionBegin();
+		DetourUpdateThread(GetCurrentThread());
+		DetourDetach(&(PVOID&)TrueCreateProcessA, RedirectedCreateProcessA);
+		DetourDetach(&(PVOID&)TrueCreateProcessW, RedirectedCreateProcessW);
+		DetourTransactionCommit();
+		
+		ret = DetourCreateProcessWithDllA(lpApplicationName, procredirected, lpProcessAttributes, lpThreadAttributes, bInheritHandles, dwCreationFlags | CREATE_SUSPENDED, lpEnvironment, lpCurrentDirectory, lpStartupInfo, lpProcessInformation, "Liar.dll", NULL);
+		ResumeThread(lpProcessInformation->hThread);
+		DetourTransactionBegin();
+		DetourUpdateThread(GetCurrentThread());
+		DetourAttach(&(PVOID&)TrueCreateProcessA, RedirectedCreateProcessA);
+		DetourAttach(&(PVOID&)TrueCreateProcessW, RedirectedCreateProcessW);
+		DetourTransactionCommit();
+		//		ret = TrueCreateProcessA(lpApplicationName, procredirected, lpProcessAttributes, lpThreadAttributes, bInheritHandles, dwCreationFlags, lpEnvironment, lpCurrentDirectory, lpStartupInfo, lpProcessInformation);
+		LIAR_DEBUG("In RedirectedCreateProcessA inproc: %s\n commandline: %s\n outkey: %s\n workdir: %s lstatus: %x\n", lpApplicationName, lpCommandLine, procredirected, lpCurrentDirectory, ret);
+		
+	}
+	else {
+		ret = TrueCreateProcessA(lpApplicationName, lpCommandLine, lpProcessAttributes, lpThreadAttributes, bInheritHandles, dwCreationFlags, lpEnvironment, lpCurrentDirectory, lpStartupInfo, lpProcessInformation);
+		LIAR_DEBUG("In RedirectedCreateProcessA inproc: %s commandline: %s outkey: %s lstatus: %x\n", lpApplicationName, lpCommandLine, lpApplicationName, ret);
+	}
+
+	return ret;
+	
+}
+
+BOOL WINAPI RedirectedCreateProcessW(
+	LPCWSTR               lpApplicationName,
+	LPWSTR                lpCommandLine,
+	LPSECURITY_ATTRIBUTES lpProcessAttributes,
+	LPSECURITY_ATTRIBUTES lpThreadAttributes,
+	BOOL                  bInheritHandles,
+	DWORD                 dwCreationFlags,
+	LPVOID                lpEnvironment,
+	LPCWSTR               lpCurrentDirectory,
+	LPSTARTUPINFOW        lpStartupInfo,
+	LPPROCESS_INFORMATION lpProcessInformation
+) {
+	BOOL ret = TrueCreateProcessW(lpApplicationName, lpCommandLine, lpProcessAttributes, lpThreadAttributes, bInheritHandles, dwCreationFlags, lpEnvironment, lpCurrentDirectory, lpStartupInfo, lpProcessInformation);
+	LIAR_DEBUG("In RedirectedCreateProcessW inproc: %ls commandline: %ls outkey: %ls lstatus: %x\n", lpApplicationName, lpCommandLine, lpApplicationName, ret);
 	return ret;
 }

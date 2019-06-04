@@ -264,3 +264,5 @@ __pycache__/
 target/overlay/bin/*
 target/freopen.out
 target/freopenerr.out
+target/*_log.txt
+target/log.txt

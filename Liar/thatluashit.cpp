@@ -6,6 +6,7 @@ extern "C" {
 
 #include <filesystem>
 #include "getenv.h"
+#include <Windows.h>
 
 namespace fs = std::experimental::filesystem;
 static int l_getdirectory(lua_State *L);
@@ -61,8 +62,8 @@ void thatluashit::executeFunction(int argumentnumber, int returnnumber) {
 		printf("error running function: %s", lua_tostring(L, -1));
 	}
 
-	//fflush(stdout); //F-f-f-f-lush
-	//fflush(stderr);
+	fflush(stdout); //F-f-f-f-lush
+	fflush(stderr);
 }
 
 // Push a wide string to the stack
@@ -159,14 +160,21 @@ void thatluashit::pushenv(const char *variablename)
 
 static int l_getdirectory(lua_State *L)
 {
+
 	const char* directory = lua_tostring(L, 1);
 	lua_newtable(L);
 	int i = 1;
 	for (const auto & entry : fs::recursive_directory_iterator(directory)) {
-		const char *path = entry.path().generic_string().c_str();
-		lua_pushlstring(L, path, strlen(path));
-		lua_rawseti(L, -2, i);
-		i++;
+		// For some unknown reason *not* doing the string conversion in *multiple steps* deallocates the bin\hammer_run_map_launcher.exe string but not anything else
+		std::string path_str = entry.path().string();
+		const char* path = path_str.c_str();
+		if(!fs::is_directory(path))
+		{
+			lua_pushstring(L, path);
+			lua_rawseti(L, -2, i);
+			LIAR_DEBUG("Path to load: %s\n", path);
+			i++;
+		}
 	}
 	return 1;
 }
