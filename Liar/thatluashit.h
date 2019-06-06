@@ -26,5 +26,7 @@ public:
 	void releaseLock();
 	void pushpathlist(const char *variablename, const char* directoryname);
 	void pushenv(const char *variablename);
+	LPCSTR callfunction(const char* funcname, const char *args,...);
+	LPCWSTR callfunctionw(const char* funcname, const char *args, ...);
 };
 

@@ -111,18 +111,8 @@ HANDLE WINAPI RedirectedFindFirstFileExW(
 )
 {
 	LIAR_DEBUG_INTRICATE("In findfirstfileexw: %ls\n", lpFileName);
-	// Lock lua! Be nice!
-	lua->getLock();
-	// Set the function name we want to call!
-	lua->setFunctionName("file_create");
-	// Push the filename someone tried to access
-	lua->pushlpcwstr(lpFileName);
-	// BAM! Call that!
-	lua->executeFunction(1, 1);
-	// Get what's returned
-	LPCWSTR filenameredirected = lua->poplpcwstr();
-	// Releeeeasee meeeee, please don't keep me down
-	lua->releaseLock();
+
+	LPCWSTR filenameredirected = lua->callfunctionw("file_create", "s", lpFileName);
 
 	// Call the *original* filesystem call
 	HANDLE ret = TrueFindFirstFileExW(
@@ -153,19 +143,11 @@ HANDLE WINAPI RedirectedCreateFileA(LPCSTR                lpFileName,
 	//
 	// Lock lua! Be nice!
 	LIAR_DEBUG_INTRICATE("In createfilea: %s\n", lpFileName);
-	lua->getLock();
-	// Set the function name we want to call!
-	lua->setFunctionName("file_create");
-	// Push the filename someone tried to access
-	lua->pushlpcstr(lpFileName);
-	// BAM! Call that!
-	lua->executeFunction(1, 1);
-	// Get what's returned
-	LPCSTR filenameredirected = lua->poplpcstr();
+
+	LPCSTR filenameredirected = lua->callfunction("file_create", "s", lpFileName);
+
 	LIAR_DEBUG_INTRICATE("In createfilea, lua returned: %s\n", filenameredirected);
-	// Releeeeasee meeeee, please don't keep me down
-	lua->releaseLock();
-	LIAR_DEBUG_INTRICATE("In createfilea, released lock\n");
+
 	// Call the *original* filesystem call
 	HANDLE ret = TrueCreateFileA(filenameredirected, dwDesiredAccess, dwShareMode, lpSecurityAttributes, dwCreationDisposition, dwFlagsAndAttributes, hTemplateFile);
 	// Cleanup
@@ -189,24 +171,8 @@ HANDLE WINAPI RedirectedCreateFileW(LPCWSTR                lpFileName,
 	lua->getLock();
 	LIAR_DEBUG_INTRICATE("Got lock\n");
 	
-	// Set the function name we want to call!
-	lua->setFunctionName("file_create");
-	// Push the filename someone tried to access
-	LIAR_DEBUG_INTRICATE("In before execute\n");
-	//
-	lua->pushlpcwstr(lpFileName);
-	// BAM! Call that!
-	lua->executeFunction(1, 1);
-	LIAR_DEBUG_INTRICATE("post execute\n");
-	
-	// Get what's returned
-	LPCWSTR filenameredirected = lua->poplpcwstr();
-	LIAR_DEBUG_INTRICATE("lua returned: %ls\n", filenameredirected);
-	
-	// Releeeeasee meeeee, please don't keep me down
-	lua->releaseLock();
-	//printf("Calling the original function\n");
-	//
+	LPCWSTR filenameredirected = lua->callfunctionw("file_create", "s", lpFileName);
+
 	// Call the *original* filesystem call
 	HANDLE ret = TrueCreateFileW(filenameredirected, dwDesiredAccess, dwShareMode, lpSecurityAttributes, dwCreationDisposition, dwFlagsAndAttributes, hTemplateFile);
 	LIAR_DEBUG("In redirectedcreatefilew infile: %ls outfile: %ls Handle: %x\n", lpFileName, filenameredirected, (unsigned int)ret);
@@ -220,33 +186,13 @@ BOOL WINAPI  RedirectedGetFileAttributesExW(LPCWSTR                lpFileName,
 	LPVOID                 lpFileInformation
 ) {
 	LIAR_DEBUG_INTRICATE("In RedirectedGetFileAttributesExW: %ls\n", lpFileName);
-	
-	// Lock lua! Be nice!
-	lua->getLock();
-	LIAR_DEBUG_INTRICATE("Got lock\n");
-	
-	// Set the function name we want to call!
-	lua->setFunctionName("file_create");
-	// Push the filename someone tried to access
-	LIAR_DEBUG_INTRICATE("In before execute\n");
-	//
-	lua->pushlpcwstr(lpFileName);
-	// BAM! Call that!
-	lua->executeFunction(1, 1);
-	LIAR_DEBUG_INTRICATE("post execute\n");
-	
-	// Get what's returned
-	LPCWSTR filenameredirected = lua->poplpcwstr();
-	LIAR_DEBUG_INTRICATE("lua returned: %ls\n", filenameredirected);
-	
-	// Releeeeasee meeeee, please don't keep me down
-	lua->releaseLock();
-	//printf("Calling the original function\n");
-	//
+
+	LPCWSTR filenameredirected = lua->callfunctionw("file_create", "s", lpFileName);
+
 	// Call the *original* filesystem call
 	BOOL ret = TrueGetFileAttributesExW(filenameredirected, fInfoLevelId, lpFileInformation);
 	LIAR_DEBUG("In RedirectedGetFileAttributesExW: infile: %ls outfile: %ls Status: %s\n", lpFileName, filenameredirected, ret ? "true" : "false");
-	;
+
 	// Cleanup
 	free((void *)filenameredirected);
 	return ret;

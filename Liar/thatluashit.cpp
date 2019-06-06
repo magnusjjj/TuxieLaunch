@@ -7,6 +7,7 @@ extern "C" {
 #include <filesystem>
 #include "getenv.h"
 #include <Windows.h>
+#include <stdarg.h>
 
 namespace fs = std::experimental::filesystem;
 static int l_getdirectory(lua_State *L);
@@ -156,6 +157,42 @@ void thatluashit::pushenv(const char *variablename)
 	}
 
 	lua_setglobal(this->L, variablename);
+}
+
+LPCSTR thatluashit::callfunction(const char *funcname, const char *args,...)
+{
+	this->getLock();
+	this->setFunctionName(funcname);
+	va_list vl;
+	va_start(vl,args);
+	int numargs = strlen(args);
+	for (int i = 0; i < numargs; i++) {
+		LPCSTR str = va_arg(vl,LPCSTR);
+		this->pushlpcstr(str);
+	}
+	va_end(vl);
+	this->executeFunction(numargs, 1);
+	LPCSTR returner = lua->poplpcstr();
+	this->releaseLock();
+	return returner;
+}
+
+LPCWSTR thatluashit::callfunctionw(const char *funcname, const char *args, ...)
+{
+	this->getLock();
+	this->setFunctionName(funcname);
+	va_list vl;
+	va_start(vl, args);
+	int numargs = strlen(args);
+	for (int i = 0; i < numargs; i++) {
+		LPCWSTR str = va_arg(vl, LPCWSTR);
+		this->pushlpcwstr(str);
+	}
+	va_end(vl);
+	this->executeFunction(numargs, 1);
+	LPCWSTR returner = lua->poplpcwstr();
+	this->releaseLock();
+	return returner;
 }
 
 static int l_getdirectory(lua_State *L)
